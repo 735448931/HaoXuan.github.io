@@ -1,0 +1,556 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Node.js学习 | HaoXuan🥝XiaoFu</title><meta name="author" content="盖世英雄昊轩"><meta name="copyright" content="盖世英雄昊轩"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Node.js学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js学习">
+<meta property="og:url" content="http://haoxuan.info/2022/11/15/%E6%96%87%E7%AB%A09/index.html">
+<meta property="og:site_name" content="HaoXuan🥝XiaoFu">
+<meta property="og:description" content="Node.js学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://haoxuan.info/img/apex%20(10).jpg">
+<meta property="article:published_time" content="2022-11-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-15T13:01:10.367Z">
+<meta property="article:author" content="盖世英雄昊轩">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://haoxuan.info/img/apex%20(10).jpg"><link rel="shortcut icon" href="/img/pai.ico"><link rel="canonical" href="http://haoxuan.info/2022/11/15/%E6%96%87%E7%AB%A09/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Node.js学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-15 21:01:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/5.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 游戏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-folder-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/fu/"><i class="fa-fw fas fa-thin fa-face-kiss-beam"></i><span> Fu</span></a></div><div class="menus_item"><a class="site-page" href="/aboutmy/"><i class="fa-fw fa-solid fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/apex%20(10).jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">HaoXuan🥝XiaoFu</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 游戏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-folder-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/fu/"><i class="fa-fw fas fa-thin fa-face-kiss-beam"></i><span> Fu</span></a></div><div class="menus_item"><a class="site-page" href="/aboutmy/"><i class="fa-fw fa-solid fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Node.js学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-11-14T16:00:00.000Z" title="发表于 2022-11-15 00:00:00">2022-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-15T13:01:10.367Z" title="更新于 2022-11-15 21:01:10">2022-11-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Node/">Node</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><hr>
+<h2 id="一-初识Node-js"><a href="#一-初识Node-js" class="headerlink" title="一.初识Node.js"></a>一.初识Node.js</h2><p>(1)浏览器中的 JavaScript运行环境:</p>
+<p>​	①V8 引擎负责解析和执行JavaScript代码。</p>
+<p>​	②内置 API是由运行环境提供的特殊接口，只能在所属的运行环境中被调用。</p>
+<p>(2) Node.js 是一个基于 ChromeV8 引擎的 JavaScript 运行环境。</p>
+<p>​	①浏览器是 JavaScript 的前端运行环境。</p>
+<p>​	② Node.js是 JavaScript 的后端运行环境。</p>
+<p>​	③ Node.js 中无法调用 DOM 和 BOM 等浏览器内置 API。</p>
+<p>(3)终端中的快捷键</p>
+<p>​	①使用 ↑键，可以快速定位到上一次执行的命令</p>
+<p>​	②使用 tab键，能够快速补全路径</p>
+<p>​	③使用 esc键，能够快速清空当前已输入的命令</p>
+<p>​	④输入 cls命令，可以清空终端</p>
+<h2 id="二-fs-文件系统模块"><a href="#二-fs-文件系统模块" class="headerlink" title="二. fs 文件系统模块"></a>二. fs 文件系统模块</h2><h3 id="2-1-fs-文件系统模块"><a href="#2-1-fs-文件系统模块" class="headerlink" title="2.1 fs 文件系统模块"></a>2.1 fs 文件系统模块</h3><p>​	fs 模块是Node.js官方提供的、用来操作文件的模块。它提供了一系列的方法和属性，用来满足用户对文件的操作需求。</p>
+<p>​	 fs.readFile()方法，用来读取指定文件中的内容</p>
+<p>​	 fs.writeFile()方法，用来向指定的文件中写入内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//  如果要在 JavaScript 代码中，使用 fs 模块来操作文件，则需要使用如下的方式先导入它：</span></span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;&#x27;</span>fs)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-读取指定文件中的内容"><a href="#2-2-读取指定文件中的内容" class="headerlink" title="2.2 读取指定文件中的内容"></a>2.2 读取指定文件中的内容</h3><p>使用fs.readFile()方法，可以读取指定文件中的内容，语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(path[,options],callback)</span><br><span class="line">参数解读：</span><br><span class="line">参数<span class="number">1</span>：必选参数，字符串，表示文件的路径。</span><br><span class="line">参数<span class="number">2</span>：可选参数，表示以什么编码格式来读取文件。</span><br><span class="line">参数<span class="number">3</span>：必选参数，文件读取完成后，通过回调函数拿到读取的结果。</span><br><span class="line">参考示例：</span><br><span class="line">以 utf8 的编码格式，读取指定文件的内容，并打印 err 和 dataStr 的值：</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;地址&#x27;</span>,<span class="string">&#x27;utf8&#x27;</span>,<span class="keyword">function</span>(<span class="params">err,dataStr</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件读取失败&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件读取成功，内容是：+ dataStr&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-向指定的文件中写入内容"><a href="#2-3-向指定的文件中写入内容" class="headerlink" title="2.3 向指定的文件中写入内容"></a>2.3 向指定的文件中写入内容</h3><p>使用fs.writeFile()方法，可以向指定的文件中写入内容，语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFile</span>(file,data[,options],callback)</span><br><span class="line">参数解读：</span><br><span class="line">参数<span class="number">1</span>：必选参数，需要指定一个文件路径的字符串，表示文件的存放路径。</span><br><span class="line">参数<span class="number">2</span>：必选参数，表示要写入的内容。</span><br><span class="line">参数<span class="number">3</span>：可选参数，表示以什么格式写入文件内容，默认值是 utf8。</span><br><span class="line">参数<span class="number">4</span>：必选参数，文件写入完成后的回调函数。</span><br><span class="line">参考示例：</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;地址&#x27;</span>,<span class="string">&#x27;hello,Node&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入失败&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件写入成功&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-案例练习-考试成绩整理"><a href="#2-4-案例练习-考试成绩整理" class="headerlink" title="2.4 案例练习-考试成绩整理"></a>2.4 案例练习-考试成绩整理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">需求：整理前，成绩.<span class="property">txt</span>文件中的数据格式如下</span><br><span class="line">小红=<span class="number">99</span> 小白=<span class="number">100</span> 小黄=<span class="number">70</span> 小黑=<span class="number">66</span> 小绿=<span class="number">88</span></span><br><span class="line">整理完成之后，希望得到的成绩-ok.<span class="property">txt</span>文件中的数据格式如下：</span><br><span class="line">小红：<span class="number">99</span></span><br><span class="line">小白：<span class="number">100</span></span><br><span class="line">小黄：<span class="number">70</span></span><br><span class="line">小黑：<span class="number">66</span></span><br><span class="line">小绿：<span class="number">88</span></span><br></pre></td></tr></table></figure>
+
+<p>核心实现步骤：</p>
+<p>​	①导入需要的 fs文件系统模块</p>
+<p>​	②使用 fs.readFile()方法，读取素材目录下的成绩.txt文件</p>
+<p>​	③判断文件是否读取失败</p>
+<p>​	④文件读取成功后，处理成绩数据</p>
+<p>​	⑤将处理完成的成绩数据，调用 fs.writeFile()方法，写入到新文件成绩-ok.txt 中</p>
+<h3 id="2-5-fs-模块-路径动态拼接的问题"><a href="#2-5-fs-模块-路径动态拼接的问题" class="headerlink" title="2.5 fs 模块 - 路径动态拼接的问题"></a>2.5 fs 模块 - 路径动态拼接的问题</h3><p>​	在使用fs模块操作文件时，如果提供的操作路径是以.&#x2F; 或..&#x2F; 开头的<strong>相对路径</strong>时，很容易出现路径动态拼接错误的问题。</p>
+<p>​	原因：代码在运行的时候，<strong>会以执行 node 命令时所处的目录</strong>，动态拼接出被操作文件的完整路径。</p>
+<p>​	解决方案：在使用fs模块操作文件时，<strong>直接提供完整的路径</strong>，不要提供 .&#x2F;或..&#x2F;开头的相对路径，从而防止路径动态拼接的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> __dirname 表示当前文件所处的目录</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readFile</span>(__dirname + <span class="string">&#x27;/files/1.txt&#x27;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, dataStr</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件失败！&#x27;</span> + err.<span class="property">message</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;读取文件成功！&#x27;</span> + dataStr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="三-path路径模块"><a href="#三-path路径模块" class="headerlink" title="三. path路径模块"></a>三. path路径模块</h2><h3 id="3-1-path-路径模块"><a href="#3-1-path-路径模块" class="headerlink" title="3.1 path 路径模块"></a>3.1 path 路径模块</h3><p>​	path 模块是Node.js官方提供的、用来处理路径的模块。它提供了一系列的方法和属性，用来满足用户对路径的处理需求。</p>
+<pre><code> path.join()方法，用来将多个路径片段拼接成一个完整的路径字符串
+</code></pre>
+<p>​	 path.basename()方法，用来从路径字符串中，将文件名解析出来</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果要在 <span class="title class_">JavaScript</span> 代码中，使用 path 模块来处理路径，则需要使用如下的方式先导入它：</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-路径拼接-path-join"><a href="#3-2-路径拼接-path-join" class="headerlink" title="3.2 路径拼接 path.join()"></a>3.2 路径拼接 path.join()</h3><p>使用path.join()方法，可以把多个路径片段拼接为完整的路径字符串，语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">join</span>([...paths])</span><br><span class="line">参数解读：</span><br><span class="line">...paths &lt;string&gt; 路径片段的序列</span><br><span class="line">返回值: &lt;string&gt;</span><br><span class="line">参考示例：</span><br><span class="line"><span class="keyword">let</span> pathStr = path.<span class="title function_">join</span>(<span class="string">&#x27;/a&#x27;</span>,<span class="string">&#x27;/b/c&#x27;</span>,<span class="string">&#x27;../&#x27;</span>,<span class="string">&#x27;./d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(pathStr) <span class="comment">// 输出\a\b\d\e</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pathStr2 = path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./files/1.txt&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(pathStr2 <span class="comment">// 输出 当前文件所处目录\files\1.txt</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：今后凡是涉及到路径拼接的操作，都要使用path.join()方法进行处理。</p>
+</blockquote>
+<h3 id="3-3-获取路径中的文件名-path-basename"><a href="#3-3-获取路径中的文件名-path-basename" class="headerlink" title="3.3 获取路径中的文件名 path.basename()"></a>3.3 获取路径中的文件名 path.basename()</h3><p>使用path.basename()方法，可以获取路径中的最后一部分，经常通过这个方法获取路径中的文件名，语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">basename</span>(path[,ext])</span><br><span class="line">参数解读：</span><br><span class="line">path &lt;string&gt; 必选参数，表示一个路径的字符串</span><br><span class="line">ext &lt;string&gt; 可选参数，表示文件扩展名</span><br><span class="line">返回: &lt;string&gt; 表示路径中的最后一部分</span><br><span class="line">参考示例：</span><br><span class="line"><span class="keyword">let</span> fpath = <span class="string">&#x27;/a/b/c/index.html&#x27;</span>  <span class="comment">// 文件的存放路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fullName = path.<span class="title function_">bassname</span>(fpath)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fullName)  <span class="comment">// 输出index.html</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> nameWithoutExt = path.<span class="title function_">basename</span>(fpath,<span class="string">&#x27;html&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(nameWithoutExt)  <span class="comment">// 输出 index</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-获取路径中的文件扩展名path-extname"><a href="#3-4-获取路径中的文件扩展名path-extname" class="headerlink" title="3.4 获取路径中的文件扩展名path.extname()"></a>3.4 获取路径中的文件扩展名path.extname()</h3><p>使用path.extname()方法，可以获取路径中的扩展名部分，语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">extname</span>(path)</span><br><span class="line">参数解读：</span><br><span class="line">path &lt;string&gt;必选参数，表示一个路径的字符串</span><br><span class="line">返回: &lt;string&gt; 返回得到的扩展名字符串</span><br><span class="line">参考示例：</span><br><span class="line"><span class="keyword">let</span> fpath = <span class="string">&#x27;/a/b/c/index.html&#x27;</span></span><br><span class="line"><span class="keyword">let</span> fext = path.<span class="title function_">extname</span>(fpath)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fext)  <span class="comment">// 输出.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-案例练习-时钟案例"><a href="#3-5-案例练习-时钟案例" class="headerlink" title="3.5 案例练习-时钟案例"></a>3.5 案例练习-时钟案例</h3><p>(1)案例的实现步骤</p>
+<p>​	①创建两个正则表达式，分别用来匹配 style和script标签</p>
+<p>​	②使用 fs模块，读取需要被处理的HTML文件</p>
+<p>​	③自定义 resolveCSS方法，来写入index.css样式文件</p>
+<p>​	④自定义 resolveJS 方法，来写入 index.js 脚本文件</p>
+<p>​	⑤自定义 resolveHTML 方法，来写入 index.html 文件</p>
+<p>(2)步骤1 - 导入需要的模块并创建正则表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>(3)步骤2 - 使用 fs 模块读取需要被处理的html文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>(4)步骤3 – 自定义 resolveCSS 方法 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>(5)步骤4 – 自定义 resolveJS 方法 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>(6)步骤5 – 自定义 resolveHTML 方法 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>注意点：</p>
+<p><code>①fs.writeFile() 方法只能用来创建文件，不能用来创建路径</code></p>
+<p><code>②重复调用 fs.writeFile() 写入同一个文件，新写入的内容会覆盖之前的旧内容</code></p>
+<h2 id="四-http-模块"><a href="#四-http-模块" class="headerlink" title="四.http 模块"></a>四.http 模块</h2><h3 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h3><p>​	(1)http 模块是Node.js官方提供的、用来创建 web 服务器的模块。通过http模块提供的http.createServer() 方法，就能方便的把一台普通的电脑，变成一台Web服务器，从而对外提供Web资源服务。</p>
+<p>如果要希望使用http模块创建Web服务器，则需要先导入它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>(2) <code>IP 地址</code> 就是互联网上<strong>每台计算机的唯一地址</strong>，因此 IP 地址具有唯一性。如果把“个人电脑”比作“一台电话”，那么“IP地址”就相当于“电话号码”，只有在知道对方IP 地址的前提下，才能与对应的电脑之间进行数据通信。</p>
+<p>IP 地址的格式：通常用“点分十进制”表示成（a.b.c.d）的形式，其中，a,b,c,d 都是 0~255 之间的十进制整数。例如：用点分十进表示的IP地址（192.168.1.1）</p>
+<p>(3)尽管IP地址能够唯一地标记网络上的计算机，但IP地址是一长串数字，不直观，而且不便于记忆，于是人们又发明了另一套字符型的地址方案，即所谓的 <code>域名（Domain Name）地址</code> 。</p>
+<p>(4)IP地址和域名是一一对应的关系，这份对应关系存放在一种叫做 <code>域名服务器</code> (DNS，Domain name server)的电脑中。使用者只需通过好记的域名访问对应的服务器即可，对应的转换工作由域名服务器实现。因此，<strong>域名服务器就是提供 IP 地址和域名之间的转换服务的服务器。</strong></p>
+<blockquote>
+<p>​	在开发测试期间， 127.0.0.1 对应的域名是localhost，它们都代表我们自己的这台电脑，在使用效果上没有任何区别。</p>
+</blockquote>
+<p>(5)端口号</p>
+<p>​	计算机中的端口号，就好像是现实生活中的门牌号一样。通过门牌号，外卖小哥可以在整栋大楼众多的房间中，准确把外卖送到你的手中。同样的道理，在一台电脑中，可以运行成百上千个web 服务。每个 web 服务都对应一个唯一的端口号。客户端发送过来的网络请求，通过端口号，可以被准确地交给对应的 web 服务进行处理。</p>
+<blockquote>
+<p>注意：<br>①每个端口号不能同时被多个web 服务占用。<br>②在实际应用中，URL 中的 80 端口可以被省略。</p>
+</blockquote>
+<h3 id="4-2-创建最基本的-web-服务器"><a href="#4-2-创建最基本的-web-服务器" class="headerlink" title="4.2 创建最基本的 web 服务器"></a>4.2 创建最基本的 web 服务器</h3><p>(1)导入 http 模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span> (<span class="string">&#x27;http&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>(2)创建 web 服务器实例</p>
+<p>调用 http.createServer() 方法，即可快速创建一个 web 服务器实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> serve = http.<span class="title function_">createServer</span>()</span><br></pre></td></tr></table></figure>
+
+<p>(3)为服务器实例绑定 request 事件，监听客户端的请求</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  使用服务器实例的 .on()方法，为服务器绑定一个 request 事件</span></span><br><span class="line">sever.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="keyword">function</span>(<span class="params">req,res</span>) &#123;</span><br><span class="line"><span class="comment">//  只要有客户端来请求我们自己的服务器，就会触发 request 事件，从而调用这个函数</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Someone visit our web server&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>(4)启动服务器</p>
+<p>调用服务器实例的 .listen() 方法，即可启动当前的 web 服务器实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;http sever running at http://127.0.0.1&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>(5) req 请求对象</p>
+<p>只要服务器接收到了客户端的请求，就会调用通过 <code> server.on()</code> 为服务器绑定的 request 事件处理函数。如果想在事件处理函数中，访问与客户端相关的<strong>数据或属性</strong>，可以使用如下的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="function">(<span class="params">req</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// req 是请求对象，它包含了与客户端相关的数据和属性，例如：</span></span><br><span class="line"><span class="comment">// req.url 是客户端请求的 URL 地址</span></span><br><span class="line"><span class="comment">// req.method 是客户端的 method 请求类型</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`你请求的url地址是<span class="subst">$&#123;req.url&#125;</span>,请求的方式是<span class="subst">$&#123;req.method&#125;</span>`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>(6) res 响应对象</p>
+<p>在服务器的 request 事件处理函数中，如果想访问与服务器相关的数据或属性，可以使用如下的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// 要发送到客户端的字符串</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`你请求的url地址是<span class="subst">$&#123;req.url&#125;</span>,请求的方式是<span class="subst">$&#123;req.method&#125;</span>`</span></span><br><span class="line"><span class="comment">// res.end() 方法的作用： 向客户端发送指定的内容，并结束这次请求的处理过程</span></span><br><span class="line">res.<span class="title function_">end</span>(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>(7) 解决中文乱码问题</p>
+<p>​	当调用 res.end() 方法，向客户端发送中文内容的时候，会出现乱码问题，此时，需要手动设置内容的编码格式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line"><span class="comment">// 要发送到客户端的字符串</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`你请求的url地址是<span class="subst">$&#123;req.url&#125;</span>,请求的方式是<span class="subst">$&#123;req.method&#125;</span>`</span></span><br><span class="line"><span class="comment">//  为了防止中文显示乱码的问题，设置响应头 Content - Type 的值为 text/html; charset=utf-8</span></span><br><span class="line">res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Content - Type&#x27;</span>,<span class="string">&#x27;text/html;charset=utf-8&#x27;</span>)</span><br><span class="line"><span class="comment">// 把内容响应给客户端</span></span><br><span class="line">res.<span class="title function_">end</span>(str)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-根据不同的-url-响应不同的-html-内容"><a href="#4-3-根据不同的-url-响应不同的-html-内容" class="headerlink" title="4.3 根据不同的 url 响应不同的 html 内容"></a>4.3 根据不同的 url 响应不同的 html 内容</h3><p>①获取请求的 url 地址</p>
+<p>②设置默认的响应内容为 404 Not found</p>
+<p>③判断用户请求的是否为 &#x2F; 或 &#x2F;index.html首页</p>
+<p>④判断用户请求的是否为 &#x2F;about.html 关于页面</p>
+<p>⑤设置 Content-Type 响应头，防止中文乱码</p>
+<p>⑥使用 res.end()把内容响应给客户端</p>
+<p>1.动态响应内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="keyword">function</span>(<span class="params">req,res</span>) &#123;</span><br><span class="line"><span class="comment">//  获取请求的 url 地址</span></span><br><span class="line">    <span class="keyword">let</span> url = req.<span class="property">url</span></span><br><span class="line"><span class="comment">// 设置默认的内容为 404 Not found</span></span><br><span class="line">    <span class="keyword">let</span> content = <span class="string">&#x27;&lt;h1&gt;404 Not found&lt;/h1&gt;&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (url ===<span class="string">&#x27;/&#x27;</span> || url ===<span class="string">&#x27;./index.html&#x27;</span>) &#123;</span><br><span class="line">	content= <span class="string">&#x27;这是首页&#x27;</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url === <span class="string">&#x27;./about.html&#x27;</span>) &#123;</span><br><span class="line">        content=<span class="string">&#x27;关于页面&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Cotent - Type&#x27;</span>,<span class="string">&#x27;text/html;charset=utf-8&#x27;</span>)</span><br><span class="line">    res.<span class="title function_">end</span>(content)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>4.4 案例-实现clock时钟的web服务器</p>
+<p>(1)	①导入需要的模块</p>
+<p>​	②创建基本的 web 服务器</p>
+<p>​	③将资源的请求 url 地址映射为文件的存放路径</p>
+<p>​	④读取文件内容并响应给客户端</p>
+<p>​	⑤优化资源的请求路径</p>
+<p>(2)导入需要的模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>(3)创建基本的web服务器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> serve = http.<span class="title function_">createServer</span>()</span><br><span class="line">serve.<span class="title function_">on</span>(<span class="string">&#x27;request&#x27;</span>,<span class="keyword">function</span>(<span class="params">req,res</span>) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br><span class="line">serve.<span class="title function_">listen</span>(<span class="number">80</span>,<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;server listen at http://127.0.0.1)</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>(4)将资源的请求 url 地址映射为文件的存放路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">获取到客户端请求的 url 地址</span><br><span class="line"><span class="keyword">let</span> url = req.<span class="property">url</span></span><br><span class="line">把请求的url地址，映射为本地文件的存放路径</span><br><span class="line"><span class="keyword">let</span> fpath = path.<span class="title function_">join</span>(__dirname,url)</span><br></pre></td></tr></table></figure>
+
+<p>(5)读取文件的内容并响应给客户端</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根据映射过来的文件路径读取文件</span><br><span class="line">fs.<span class="title function_">readFile</span>(fpath,<span class="string">&#x27;utf8&#x27;</span>,<span class="function">(<span class="params">err,dataStr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> res.<span class="title function_">end</span>(<span class="string">&#x27;404 not found&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    res.<span class="title function_">end</span>(dataStr)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>(6)优化资源的请求路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">将(<span class="number">4</span>)改为</span><br><span class="line">预定义空白的文件存放路径</span><br><span class="line"><span class="keyword">let</span> fpath = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (url === <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">    fpath = path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./clock/index.html&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fpath = path.<span class="title function_">join</span>(__dirname,<span class="string">&#x27;./clock&#x27;</span>,url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五-模块化"><a href="#五-模块化" class="headerlink" title="五.模块化"></a>五.模块化</h2><p>​	(1)模块化是指解决一个复杂问题时，自顶向下逐层把系统划分成若干模块的过程。对于整个系统来说，模块是可组合、分解和更换的单元。</p>
+<p>​	(2)编程领域中的模块化，就是遵守固定的规则，把一个大文件拆成独立并互相依赖的多个小模块。</p>
+<p>​	(3)把代码进行模块化拆分的好处：</p>
+<p>​		①提高了代码的复用性</p>
+<p>​		②提高了代码的可维护性</p>
+<p>​		③可以实现按需加载</p>
+<h3 id="5-1-Node-js-中模块的分类"><a href="#5-1-Node-js-中模块的分类" class="headerlink" title="5.1 Node.js 中模块的分类"></a>5.1 Node.js 中模块的分类</h3><p>(1)Node.js中根据模块来源的不同，将模块分为了3 大类，分别是：</p>
+<p>​	内置模块（内置模块是由Node.js官方提供的，例如fs、path、http等）</p>
+<p>​	自定义模块（用户创建的每个.js文件，都是自定义模块）</p>
+<p>​	第三方模块（由第三方开发出来的模块，并非官方提供的内置模块，也不是用户创建的自定义模块，使用前需要先下载）</p>
+<p>(2)使用强大的require()方法，可以加载需要的内置模块、用户自定义模块、第三方模块进行使用。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">加载内置的 fs 模块</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">加载用户的自定义模块</span><br><span class="line"><span class="keyword">let</span> custom = <span class="built_in">require</span>(<span class="string">&#x27;./custom.js&#x27;</span>)</span><br><span class="line">加载第三方模块</span><br><span class="line"><span class="keyword">let</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：使用 require() 方法加载其它模块时，会执行被加载模块中的代码。</p>
+</blockquote>
+<p>(3)模块作用域</p>
+<p>​	和函数作用域类似，在自定义模块中定义的变量、方法等成员，<strong>只能在当前模块内被访问</strong>，这种模块级别的访问限制，叫做模块作用域。</p>
+<p><code>优点：防止了全局变量污染的问题</code></p>
+<h3 id="5-2-向外共享模块作用域中的成员"><a href="#5-2-向外共享模块作用域中的成员" class="headerlink" title="5.2 向外共享模块作用域中的成员"></a>5.2 向外共享模块作用域中的成员</h3><p>(1)module对象</p>
+<p>​	在每个 .js自定义模块中都有一个module对象，它里面存储了和当前模块有关的信息</p>
+<p>(2)module.exports 对象</p>
+<p>​	在自定义模块中，可以使用module.exports对象，将模块内的成员共享出去，供外界使用。外界用require() 方法导入自定义模块时，得到的就是module.exports所指向的对象。</p>
+<p>(3)共享成员时的<strong>注意点</strong></p>
+<p>​	使用require()方法导入模块时，导入的结果，永远以 module.exports 指向的对象为准。</p>
+<p>(4)exports对象</p>
+<p>​	由于module.exports单词写起来比较复杂，为了简化向外共享成员的代码，Node提供了exports对象。 <code>默认情况下，exports 和module.exports 指向同一个对象</code> 。最终共享的结果，还是以 <code> module.exports</code> 指向的对象为准。</p>
+<p>(5)Node.js 中的模块化规范</p>
+<p>​	Node.js遵循了CommonJS模块化规范，CommonJS规定了模块的特性和各模块之间如何相互依赖。</p>
+<p>CommonJS规定：</p>
+<p>​	①每个模块内部，module 变量代表当前模块。</p>
+<p>​	②module 变量是一个对象，它的exports属性（即module.exports）是对外的接口。</p>
+<p>​	③加载某个模块，其实是加载该模块的 module.exports属性。require() 方法用于加载模块。</p>
+<h2 id="六-npm与包"><a href="#六-npm与包" class="headerlink" title="六.npm与包"></a>六.npm与包</h2><p>(1)Node.js中的第三方模块又叫做包。就像电脑和计算机指的是相同的东西，第三方模块和包指的是同一个概念，只不过叫法不同。</p>
+<p>(2)由于Node.js的内置模块仅提供了一些底层的API，导致在基于内置模块进行项目开发的时，效率很低。</p>
+<p>​    包是基于内置模块封装出来的，提供了更高级、更方便的 API，极大的提高了开发效率。</p>
+<p>​    包和内置模块之间的关系，类似于jQuery和浏览器内置 API 之间的关系。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a> </p>
+</blockquote>
+<h3 id="6-1-包的使用"><a href="#6-1-包的使用" class="headerlink" title="6.1 包的使用"></a>6.1 包的使用</h3><p>(1)格式化事件的做法</p>
+<p>①使用npm 包管理工具，在项目中安装格式化时间的包 moment</p>
+<p>②使用 require()导入格式化时间的包</p>
+<p>③参考 moment的官方API文档对时间进行格式化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> moment = <span class="built_in">require</span>(<span class="string">&#x27;moment&#x27;</span>)</span><br><span class="line">参考 moment的官方<span class="variable constant_">API</span>文档对时间进行格式化</span><br><span class="line">调用<span class="title function_">moment</span>()方法，得到当前的时间</span><br><span class="line">针对当前的时间，调用<span class="title function_">format</span>()方法，按照指定的格式进行时间的格式化</span><br><span class="line"><span class="keyword">let</span> dt = <span class="title function_">moment</span>().<span class="title function_">format</span>(<span class="string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>(2)在项目中安装包的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install 包的完整名称</span><br><span class="line">npm i 包的完整名称</span><br></pre></td></tr></table></figure>
+
+<p>(3)初次装包后多了哪些文件</p>
+<p>初次装包完成后，在项目文件夹下多一个叫做node_modules的文件夹和package-lock.json 的配置文件。</p>
+<p>node_modules 文件夹用来存放所有已安装到项目中的包。require()导入第三方包时，就是从这个目录中查找并加载包。</p>
+<p>package-lock.json 配置文件用来记录 node_modules 目录下的每一个包的下载信息，例如包的名字、版本号、下载地址等。</p>
+<p>(4)安装指定版本的包</p>
+<p>​	默认情况下，使用npminstall 命令安装包的时候，会自动安装最新版本的包。如果需要安装指定版本的包，可以在包名之后，通过 @ 符号指定具体的版本，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i moment@2.22.2</span><br></pre></td></tr></table></figure>
+
+<p>(5)包的语义化版本规范</p>
+<p>包的版本号是以“点分十进制”形式进行定义的，总共有三位数字，例如2.24.0</p>
+<p>其中每一位数字所代表的的含义如下：</p>
+<p>第1位数字：大版本<br>第2位数字：功能版本<br>第3位数字：Bug修复版本</p>
+<p>版本号提升的规则：只要前面的版本号增长了，则后面的版本号归零。</p>
+<h3 id="6-2-包管理配置文件"><a href="#6-2-包管理配置文件" class="headerlink" title="6.2 包管理配置文件"></a>6.2 包管理配置文件</h3><p>(1)npm规定，在项目根目录中，必须提供一个叫做package.json 的包管理配置文件。用来记录与项目有关的一些配置信息。</p>
+<p>(2)多人协作的问题</p>
+<p>​	遇到的问题：第三方包的体积过大，不方便团队成员之间共享项目源代码。</p>
+<p>​	解决方案：<strong>共享时剔除node_modules</strong></p>
+<p>(3)如何记录项目中安装了哪些包</p>
+<p>在项目根目录中，创建一个叫做 package.json 的配置文件，即可用来记录项目中安装了哪些包。从而方便剔除node_modules目录之后，在团队成员之间共享项目的源代码。</p>
+<p><code>注意：今后在项目开发中，一定要把node_modules文件夹，添加到.gitignore忽略文件中。</code></p>
+<p>(4)快速创建 package.json</p>
+<p>npm包管理工具提供了一个快捷命令，可以在执行命令时所处的目录中，快速创建 package.json这个包管理配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在执行命令所处的目录中，快速新建 package.json 文件</span><br><span class="line">npm init -y</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<p>①<code>上述命令只能在英文的目录下成功运行</code>！所以，项目文件夹的名称一定要使用英文命名，<code>不要使用中文，不能出现空格</code>。</p>
+<p>②运行 npminstall 命令安装包的时候，npm 包管理工具会自动把包的名称和版本号，记录到 package.json 中。</p>
+<p>(5)dependencies节点</p>
+<p>package.json文件中，有一个dependencies节点，专门用来记录您使用npm install 命令安装了哪些包。</p>
+<p>(6)一次性安装所有的包</p>
+<p>当我们拿到一个剔除了 node_modules 的项目之后，需要先把所有的包下载到项目中，才能将项目运行起来。</p>
+<p>可以运行 npm install 命令（或 npm i）一次性安装所有的依赖包：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">执行 npm install 命令时，npm 包管理工具会先读取 package.<span class="property">json</span> 中的 dependencies 节点</span><br><span class="line">读取之后, npm 会把这些包一次性下载到项目中</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>(7)卸载包</p>
+<p>可以运行npm uninstall 命令，来卸载指定的包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall 具体的包名</span><br></pre></td></tr></table></figure>
+
+<p>注意：npm uninstall 命令执行成功后，会把卸载的包，自动从package.json的 dependencies中移除掉。</p>
+<p>(8)devDependencies节点</p>
+<p>如果某些包<strong>只在项目开发阶段</strong>会用到，<strong>在项目上线之后不会用到</strong>，则建议把这些包记录到 devDependencies节点中。</p>
+<p>与之对应的，如果某些包在开发和项目上线之后都需要用到，则建议把这些包记录到dependencies节点中。</p>
+<p>您可以使用如下的命令，将包记录到devDependencies节点中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装指定的包，并记录到 devDependencies 节点中</span><br><span class="line">npm i 包名 -D</span><br><span class="line">注意：上述命令是简写形式，等价于下面完整的写法：</span><br><span class="line">npm install 包名 --save-dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-3-下包速度慢的问题"><a href="#6-3-下包速度慢的问题" class="headerlink" title="6.3 下包速度慢的问题"></a>6.3 下包速度慢的问题</h3><p>(1)切换npm 的下包镜像源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">查看当前的下包镜像源</span><br><span class="line">npm config get registry</span><br><span class="line">将下包的镜像源切换为淘宝镜像源</span><br><span class="line">npm config set registry=https://registry.npm.taobao.org/</span><br><span class="line">检查镜像源是否下载成功</span><br><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p>(2)nrm</p>
+<p>为了更方便的切换下包的镜像源，我们可以安装 nrm 这个小工具，利用nrm提供的终端命令，可以快速查看和切换下包的镜像源。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通过 npm 包管理器，将 nrm 安装为全局可用的工具</span><br><span class="line">npm i nrm -g</span><br><span class="line">查看所有可用的镜像源</span><br><span class="line">npm ls</span><br><span class="line">将下包的镜像源切换为 taobao 镜像</span><br><span class="line">nrm use taobao</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-包的分类"><a href="#6-4-包的分类" class="headerlink" title="6.4 包的分类"></a>6.4 包的分类</h3><p>(1)使用npm包管理工具下载的包，共分为两大类，分别是：项目包    全局包</p>
+<p>(2)项目包</p>
+<p>​	那些被安装到项目的 node_modules目录中的包，都是项目包。</p>
+<p>项目包又分为两类，分别是：</p>
+<p>开发依赖包（被记录到 devDependencies 节点中的包，只在开发期间会用到）</p>
+<p>核心依赖包（被记录到 dependencies 节点中的包，在开发期间和项目上线之后都会用到）</p>
+<p>(3)全局包</p>
+<p>在执行 npm install 命令时，如果提供了 -g 参数，则会把包安装为全局包。</p>
+<p>全局包会被安装到 C:\Users\用户目录\AppData\Roaming\npm\node_modules 目录下。</p>
+<p>注意：</p>
+<p>①只有工具性质的包，才有全局安装的必要性。因为它们提供了好用的终端命令。</p>
+<p>②判断某个包是否需要全局安装后才能使用，可以参考官方提供的使用说明即可。</p>
+<p>(4)i5ting_toc</p>
+<p>i5ting_toc 是一个可以把 md 文档转为 html 页面的小工具，使用步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g i5ting_toc</span><br><span class="line">调用 i5ting_toc ，轻松实现 md 转 html 的功能</span><br><span class="line">i5ting_toc -f 要转换的md文件路径 -o</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-规范的包结构"><a href="#6-5-规范的包结构" class="headerlink" title="6.5 规范的包结构"></a>6.5 规范的包结构</h3><p>在清楚了包的概念、以及如何下载和使用包之后，接下来，我们深入了解一下包的内部结构。</p>
+<p>一个规范的包，它的组成结构，必须符合以下3点要求：</p>
+<p>​	①包必须以<strong>单独的目录</strong>而存在</p>
+<p>​	②包的顶级目录下要必须包含 <strong>package.json</strong> 这个包管理配置文件</p>
+<p>​	③package.json 中必须包含<strong>name，version，main</strong>这三个属性，分别代表包的名字、版本号、包的入口。</p>
+<h3 id="6-6-开发属于自己的包"><a href="#6-6-开发属于自己的包" class="headerlink" title="6.6 开发属于自己的包"></a>6.6 开发属于自己的包</h3><p>功能：</p>
+<p>① 格式化日期</p>
+<p>② 转义 HTML 中的特殊字符</p>
+<p>③ 还原 HTML 中的特殊字符</p>
+<h3 id="6-7-发布包"><a href="#6-7-发布包" class="headerlink" title="6.7 发布包"></a>6.7 发布包</h3><p>(1)npm 账号注册完成后，可以在终端中执行npm login 命令，依次输入用户名、密码、邮箱后，即可登录成功。</p>
+<p>(2)注意：在运行 npm login 命令之前，必须先把下包的服务器地址切换为 npm 的官方服务器。否则会导致发布包失败！</p>
+<p>(3)将终端切换到包的根目录之后，运行 npm publish 命令，即可将包发布到 npm 上（注意：包名不能雷同）。</p>
+<p>(4)删除已发布的包：运行 npm unpublish 包名–force 命令，即可从 npm 删除已发布的包。</p>
+<blockquote>
+<p>注意：<br>(1)npm unpublish 命令只能删除 72 小时以内发布的包<br>(2)npm unpublish 删除的包，在 24 小时内不允许重复发布<br>(3)发布包的时候要慎重，尽量不要往 npm 上发布没有意义的包！</p>
+</blockquote>
+<h2 id="七-模块的加载机制"><a href="#七-模块的加载机制" class="headerlink" title="七.模块的加载机制"></a>七.模块的加载机制</h2><h3 id="7-1-优先从缓存中加载"><a href="#7-1-优先从缓存中加载" class="headerlink" title="7.1 优先从缓存中加载"></a>7.1 优先从缓存中加载</h3><p><code>模块在第一次加载后会被缓存</code>。 这也意味着多次调用 require() 不会导致模块的代码被执行多次。</p>
+<p>注意：不论是内置模块、用户自定义模块、还是第三方模块，它们都会优先从缓存中加载，从而提高模块的加载效率。</p>
+<h3 id="7-2-内置模块的加载机制"><a href="#7-2-内置模块的加载机制" class="headerlink" title="7.2 内置模块的加载机制"></a>7.2 内置模块的加载机制</h3><p>内置模块是由 Node.js 官方提供的模块，<code>内置模块的加载优先级最高</code> 。</p>
+<p>例如，require(‘fs’) 始终返回内置的 fs 模块，即使在 node_modules 目录下有名字相同的包也叫做 fs。</p>
+<h3 id="7-3-自定义模块的加载机制"><a href="#7-3-自定义模块的加载机制" class="headerlink" title="7.3 自定义模块的加载机制"></a>7.3 自定义模块的加载机制</h3><p>使用 require() 加载自定义模块时，必须指定以.&#x2F; 或 ..&#x2F; 开头的<strong>路径标识符</strong>。在加载自定义模块时，如果没有指定 .&#x2F; 或 ..&#x2F; 这样的路径标识符，则 node 会把它当作内置模块或第三方模块进行加载。</p>
+<p>同时，在使用 require() 导入自定义模块时，如果省略了文件的扩展名，则Node.js 会<code>按顺序</code>分别尝试加载以下的文件：</p>
+<p><strong>①按照确切的文件名进行加载</strong></p>
+<p><strong>②补全 .js 扩展名进行加载</strong></p>
+<p><strong>③补全 .json 扩展名进行加载</strong></p>
+<p><strong>④补全 .node 扩展名进行加载</strong></p>
+<p>⑤加载失败，终端报错</p>
+<h3 id="7-4-第三方模块的加载机制"><a href="#7-4-第三方模块的加载机制" class="headerlink" title="7.4 第三方模块的加载机制"></a>7.4 第三方模块的加载机制</h3><p>如果传递给 require() 的模块标识符不是一个内置模块，也没有以‘.&#x2F;’ 或 ‘..&#x2F;’ 开头，则 Node.js 会从当前模块的父目录开始，尝试从&#x2F;node_modules 文件夹中加载第三方模块。</p>
+<p><code>如果没有找到对应的第三方模块，则移动到再上一层父目录中，进行加载，直到文件系统的根目录。</code></p>
+<p>例如，假设在 ‘C:\Users\itheima\project\foo.js’ 文件里调用了 require(‘tools’)，则 Node.js 会按以下顺序查找：</p>
+<p>① C:\Users\itheima\project\node_modules\tools</p>
+<p>② C:\Users\itheima\node_modules\tools</p>
+<p>③ C:\Users\node_modules\tools</p>
+<p>④ C:\node_modules\tools</p>
+<h3 id="7-5-目录作为模块"><a href="#7-5-目录作为模块" class="headerlink" title="7.5 目录作为模块"></a>7.5 目录作为模块</h3><p>当把目录作为模块标识符，传递给require() 进行加载的时候，有三种加载方式：</p>
+<p>①在被加载的目录下查找一个叫做package.json 的文件，并寻找 main 属性，作为 require() 加载的入口</p>
+<p>②如果目录里没有 package.json 文件，或者 main 入口不存在或无法解析，则 Node.js 将会试图加载目录下的 index.js 文件。</p>
+<p>③如果以上两步都失败了，则 Node.js 会在终端打印错误消息，报告模块的缺失：Error: Cannotfind module ‘xxx’</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/Node/">Node</a></div><div class="post_share"><div class="social-share" data-image="/img/apex%20(10).jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/weixin.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/weixin.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/zhifubao.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/11/15/%E6%96%87%E7%AB%A08/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/apex%20(8).jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Express学习</div></div></a></div><div class="next-post pull-right"><a href="/2022/11/10/%E6%96%87%E7%AB%A05/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%8E%9F%E7%A5%9E1%20(2).jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Ajax学习(2)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/20/%E6%96%87%E7%AB%A01/" title="Javascript基础"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%8E%9F%E7%A5%9E1%20(3).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-20</div><div class="title">Javascript基础</div></div></a></div><div><a href="/2022/11/15/%E6%96%87%E7%AB%A010/" title="ES6模块化学习"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/apex%20(19).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-15</div><div class="title">ES6模块化学习</div></div></a></div><div><a href="/2022/11/15/%E6%96%87%E7%AB%A011/" title="webpack学习"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/apex%20(20).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-15</div><div class="title">webpack学习</div></div></a></div><div><a href="/2022/11/15/%E6%96%87%E7%AB%A013/" title="Vuex学习"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/apex%20(7).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-15</div><div class="title">Vuex学习</div></div></a></div><div><a href="/2022/10/25/%E6%96%87%E7%AB%A02/" title="WebApi学习"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%8E%9F%E7%A5%9E1%20(4).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-25</div><div class="title">WebApi学习</div></div></a></div><div><a href="/2022/10/30/%E6%96%87%E7%AB%A03/" title="JavaScript高级学习"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%8E%9F%E7%A5%9E1%20(6).jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-30</div><div class="title">JavaScript高级学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E5%88%9D%E8%AF%86Node-js"><span class="toc-text">一.初识Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-fs-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97"><span class="toc-text">二. fs 文件系统模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-fs-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%97"><span class="toc-text">2.1 fs 文件系统模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AF%BB%E5%8F%96%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">2.2 读取指定文件中的内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%90%91%E6%8C%87%E5%AE%9A%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%AD%E5%86%99%E5%85%A5%E5%86%85%E5%AE%B9"><span class="toc-text">2.3 向指定的文件中写入内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0-%E8%80%83%E8%AF%95%E6%88%90%E7%BB%A9%E6%95%B4%E7%90%86"><span class="toc-text">2.4 案例练习-考试成绩整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-fs-%E6%A8%A1%E5%9D%97-%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E6%8B%BC%E6%8E%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">2.5 fs 模块 - 路径动态拼接的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-path%E8%B7%AF%E5%BE%84%E6%A8%A1%E5%9D%97"><span class="toc-text">三. path路径模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-path-%E8%B7%AF%E5%BE%84%E6%A8%A1%E5%9D%97"><span class="toc-text">3.1 path 路径模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%B7%AF%E5%BE%84%E6%8B%BC%E6%8E%A5-path-join"><span class="toc-text">3.2 路径拼接 path.join()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D-path-basename"><span class="toc-text">3.3 获取路径中的文件名 path.basename()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%8E%B7%E5%8F%96%E8%B7%AF%E5%BE%84%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%89%A9%E5%B1%95%E5%90%8Dpath-extname"><span class="toc-text">3.4 获取路径中的文件扩展名path.extname()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%A1%88%E4%BE%8B%E7%BB%83%E4%B9%A0-%E6%97%B6%E9%92%9F%E6%A1%88%E4%BE%8B"><span class="toc-text">3.5 案例练习-时钟案例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-http-%E6%A8%A1%E5%9D%97"><span class="toc-text">四.http 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">4.1 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%9B%E5%BB%BA%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84-web-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">4.2 创建最基本的 web 服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%A0%B9%E6%8D%AE%E4%B8%8D%E5%90%8C%E7%9A%84-url-%E5%93%8D%E5%BA%94%E4%B8%8D%E5%90%8C%E7%9A%84-html-%E5%86%85%E5%AE%B9"><span class="toc-text">4.3 根据不同的 url 响应不同的 html 内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94-%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">五.模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Node-js-%E4%B8%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">5.1 Node.js 中模块的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%90%91%E5%A4%96%E5%85%B1%E4%BA%AB%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98"><span class="toc-text">5.2 向外共享模块作用域中的成员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD-npm%E4%B8%8E%E5%8C%85"><span class="toc-text">六.npm与包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">6.1 包的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%8C%85%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">6.2 包管理配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E4%B8%8B%E5%8C%85%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">6.3 下包速度慢的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E5%8C%85%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">6.4 包的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-%E8%A7%84%E8%8C%83%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84"><span class="toc-text">6.5 规范的包结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-6-%E5%BC%80%E5%8F%91%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8C%85"><span class="toc-text">6.6 开发属于自己的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-7-%E5%8F%91%E5%B8%83%E5%8C%85"><span class="toc-text">6.7 发布包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">七.模块的加载机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E4%BC%98%E5%85%88%E4%BB%8E%E7%BC%93%E5%AD%98%E4%B8%AD%E5%8A%A0%E8%BD%BD"><span class="toc-text">7.1 优先从缓存中加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">7.2 内置模块的加载机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">7.3 自定义模块的加载机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-text">7.4 第三方模块的加载机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-%E7%9B%AE%E5%BD%95%E4%BD%9C%E4%B8%BA%E6%A8%A1%E5%9D%97"><span class="toc-text">7.5 目录作为模块</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By 盖世英雄昊轩</div><div class="footer_custom_text">追风赶月莫停留，平芜尽处是春山</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer src="/js/light.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/11/15/文章6/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (2).png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-15</span><a class="blog-slider__title" href="2022/11/15/文章6/" alt="">Git学习</a><div class="blog-slider__text">Git学习笔记</div><a class="blog-slider__button" href="2022/11/15/文章6/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/11/10/文章5/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (2).jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-10</span><a class="blog-slider__title" href="2022/11/10/文章5/" alt="">Ajax学习(2)</a><div class="blog-slider__text">Ajax学习笔记(2)</div><a class="blog-slider__button" href="2022/11/10/文章5/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/11/05/文章4/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (7).jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-11-05</span><a class="blog-slider__title" href="2022/11/05/文章4/" alt="">Ajax学习(1)</a><div class="blog-slider__text">Ajax学习笔记(1)</div><a class="blog-slider__button" href="2022/11/05/文章4/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/10/30/文章3/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (6).jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-30</span><a class="blog-slider__title" href="2022/10/30/文章3/" alt="">JavaScript高级学习</a><div class="blog-slider__text">JavaScript高级学习笔记</div><a class="blog-slider__button" href="2022/10/30/文章3/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/10/25/文章2/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (4).jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-25</span><a class="blog-slider__title" href="2022/10/25/文章2/" alt="">WebApi学习</a><div class="blog-slider__text">WebApi学习笔记</div><a class="blog-slider__button" href="2022/10/25/文章2/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/10/20/文章1/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/原神1 (3).jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-10-20</span><a class="blog-slider__title" href="2022/10/20/文章1/" alt="">Javascript基础</a><div class="blog-slider__text">Javascript基础部分学习笔记</div><a class="blog-slider__button" href="2022/10/20/文章1/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '0.5s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
